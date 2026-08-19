@@ -25,47 +25,30 @@ A lightweight scientific unit conversion tool for medical physics, radiation phy
 - keV ↔ GeV
 - MeV ↔ GeV
 
-## Usage
+## Validation
 
-The converter can be used directly from Python.
-
-```python
-from converter import convert
-
-result = convert(5, "Gy", "rad")
-
-print(result)
-
-Validation
-
-Automated tests are run using pytest.
+The conversion functions are validated using automated tests with pytest.
 
 Tests are automatically executed through GitHub Actions whenever changes are pushed to the main branch.
 
-Development Status
+## Development Status
 
 This project is currently under active development.
 
-Future versions may include:
+Future releases will expand the range of supported medical physics units and introduce additional functionality.
 
-Radioactivity conversions
-Length conversions
-Mass conversions
-Time conversions
-Additional medical physics units
-Web-based interface
-About
+## About
 
-Developed by kV-MedPhysLab.
+Developed by **kV-MedPhysLab**.
 
-Founded by Konstantinos Vasilopoulos.
+Founded by **Konstantinos Vasilopoulos**.
 
-Disclaimer
+## Disclaimer
 
 This tool is intended for educational, research, and non-clinical purposes.
 
 It is not intended to replace validated clinical, regulatory, or commercial software.
 
-License
+## License
 
 License information will be added in a future release.
