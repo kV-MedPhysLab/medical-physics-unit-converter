@@ -2,7 +2,7 @@
 Tests for the Medical Physics Unit Converter.
 """
 
-from src.converter import convert
+from converter import convert
 
 
 def test_gy_to_rad():
