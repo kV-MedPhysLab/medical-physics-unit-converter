@@ -2,28 +2,70 @@
 
 A lightweight scientific unit conversion tool for medical physics, radiation physics, and biomedical research.
 
-## Status
+## Current Version
 
-🚧 Early development
+**v0.1.0**
 
-**Current version:** v0.1.0
+## Supported Conversions
 
-## Planned features
+### Radiation Dose
 
-- Radiation dose conversions
-- Equivalent dose conversions
-- Radioactivity conversions
-- Energy conversions
-- Length conversions
-- Mass conversions
-- Time conversions
+- Gy ↔ rad
 
-## About
+### Equivalent Dose
 
-Developed by **kV-MedPhysLab**.
+- Sv ↔ rem
 
-Founded by **Konstantinos Vasilopoulos**.
+### Energy
 
-## License
+- eV ↔ keV
+- eV ↔ MeV
+- eV ↔ GeV
+- keV ↔ MeV
+- keV ↔ GeV
+- MeV ↔ GeV
 
-This project is currently under development.
+## Usage
+
+The converter can be used directly from Python.
+
+```python
+from converter import convert
+
+result = convert(5, "Gy", "rad")
+
+print(result)
+
+Validation
+
+Automated tests are run using pytest.
+
+Tests are automatically executed through GitHub Actions whenever changes are pushed to the main branch.
+
+Development Status
+
+This project is currently under active development.
+
+Future versions may include:
+
+Radioactivity conversions
+Length conversions
+Mass conversions
+Time conversions
+Additional medical physics units
+Web-based interface
+About
+
+Developed by kV-MedPhysLab.
+
+Founded by Konstantinos Vasilopoulos.
+
+Disclaimer
+
+This tool is intended for educational, research, and non-clinical purposes.
+
+It is not intended to replace validated clinical, regulatory, or commercial software.
+
+License
+
+License information will be added in a future release.
