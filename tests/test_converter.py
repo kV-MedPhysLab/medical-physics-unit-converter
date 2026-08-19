@@ -42,16 +42,14 @@ def test_same_unit():
 
 
 def test_invalid_source_unit():
-    try:
+    import pytest
+
+    with pytest.raises(ValueError):
         convert(5, "invalid", "Gy")
-        assert False
-    except ValueError:
-        assert True
 
 
 def test_invalid_target_unit():
-    try:
+    import pytest
+
+    with pytest.raises(ValueError):
         convert(5, "Gy", "invalid")
-        assert False
-    except ValueError:
-        assert True
