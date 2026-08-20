@@ -1,39 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Medical Physics Unit Converter</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Medical Physics Unit Converter by kV-MedPhysLab"
+    >
+
+    <title>
+        Medical Physics Unit Converter | kV-MedPhysLab
+    </title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <main class="container">
+    <header class="site-header">
 
-        <header>
+        <div class="header-content">
+
             <div class="brand">
-                <span class="brand-mark">KV</span>
-                <span class="brand-name">kV-MedPhysLab</span>
+
+                <div class="brand-logo">
+                    KV
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        kV-MedPhysLab
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Scientific Tools for Medical Physics
+                    </div>
+
+                </div>
+
             </div>
 
-            <h1>Medical Physics Unit Converter</h1>
+            <div class="version">
+                v0.2.0
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="main-content">
+
+
+        <section class="hero">
+
+            <div class="eyebrow">
+                SCIENTIFIC CALCULATOR
+            </div>
+
+            <h1>
+                Medical Physics<br>
+                <span>Unit Converter</span>
+            </h1>
 
             <p>
-                Scientific unit conversion tool for medical physics,
-                radiation physics, and biomedical research.
+                Fast and reliable unit conversions for medical physics,
+                radiation physics, and scientific research.
             </p>
-        </header>
+
+        </section>
 
 
-        <section class="converter">
+        <section class="converter-card">
+
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Convert Units
+                    </h2>
+
+                    <p>
+                        Select a physical quantity and enter your value.
+                    </p>
+
+                </div>
+
+            </div>
+
 
             <div class="field">
 
                 <label for="category">
-                    Category
+                    Physical Quantity
                 </label>
 
                 <select id="category">
@@ -80,16 +151,18 @@
                 <input
                     type="number"
                     id="value"
-                    placeholder="Enter a value"
+                    placeholder="e.g. 5"
                     step="any"
+                    autocomplete="off"
                 >
 
             </div>
 
 
-            <div class="unit-row">
+            <div class="conversion-row">
 
-                <div class="field">
+
+                <div class="unit-field">
 
                     <label for="fromUnit">
                         From
@@ -111,7 +184,7 @@
                 </button>
 
 
-                <div class="field">
+                <div class="unit-field">
 
                     <label for="toUnit">
                         To
@@ -121,6 +194,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -129,7 +203,9 @@
                 class="convert-button"
                 type="button"
             >
+
                 Convert
+
             </button>
 
 
@@ -138,40 +214,213 @@
                 class="result"
                 aria-live="polite"
             >
-                Result will appear here.
+
+                <span class="result-label">
+                    RESULT
+                </span>
+
+                <span id="resultValue">
+                    —
+                </span>
+
+            </div>
+
+
+            <button
+                id="copyButton"
+                class="copy-button"
+                type="button"
+            >
+
+                Copy Result
+
+            </button>
+
+
+        </section>
+
+
+        <section class="categories-section">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    AVAILABLE
+                </div>
+
+                <h2>
+                    Conversion Categories
+                </h2>
+
+            </div>
+
+
+            <div class="category-grid">
+
+
+                <button
+                    class="category-card"
+                    data-category="radiation_dose"
+                >
+
+                    <span class="category-icon">
+                        D
+                    </span>
+
+                    <span>
+                        Radiation Dose
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="equivalent_dose"
+                >
+
+                    <span class="category-icon">
+                        S
+                    </span>
+
+                    <span>
+                        Equivalent Dose
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="energy"
+                >
+
+                    <span class="category-icon">
+                        E
+                    </span>
+
+                    <span>
+                        Energy
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="radioactivity"
+                >
+
+                    <span class="category-icon">
+                        A
+                    </span>
+
+                    <span>
+                        Radioactivity
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="length"
+                >
+
+                    <span class="category-icon">
+                        L
+                    </span>
+
+                    <span>
+                        Length
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="mass"
+                >
+
+                    <span class="category-icon">
+                        M
+                    </span>
+
+                    <span>
+                        Mass
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="time"
+                >
+
+                    <span class="category-icon">
+                        T
+                    </span>
+
+                    <span>
+                        Time
+                    </span>
+
+                </button>
+
+
             </div>
 
         </section>
 
 
-        <section class="information">
+        <section class="about-section">
 
-            <h2>Supported Categories</h2>
+            <div>
+
+                <div class="eyebrow">
+                    ABOUT THIS TOOL
+                </div>
+
+                <h2>
+                    Built for scientific work.
+                </h2>
+
+            </div>
 
             <p>
-                Radiation dose, equivalent dose, energy,
-                radioactivity, length, mass, and time.
+                Medical Physics Unit Converter is an open-source
+                scientific utility developed by kV-MedPhysLab.
+                It is designed for educational, research, and
+                non-clinical applications.
             </p>
 
         </section>
 
 
-        <footer>
-
-            <p>
-                kV-MedPhysLab · Medical Physics Unit Converter · v0.2.0
-            </p>
-
-            <p>
-                For educational, research, and non-clinical use.
-            </p>
-
-        </footer>
-
     </main>
+
+
+    <footer class="site-footer">
+
+        <div>
+            kV-MedPhysLab
+        </div>
+
+        <div>
+            Medical Physics Unit Converter · v0.2.0
+        </div>
+
+        <div>
+            Educational &amp; research use
+        </div>
+
+    </footer>
 
 
     <script src="app.js"></script>
 
 </body>
+
 </html>
