@@ -2,6 +2,8 @@
 Tests for the Medical Physics Unit Converter.
 """
 
+import pytest
+
 from converter import convert
 
 
@@ -37,19 +39,55 @@ def test_ev_to_gev():
     assert convert(1e9, "eV", "GeV") == 1
 
 
+def test_bq_to_ci():
+    assert convert(3.7e10, "Bq", "Ci") == 1
+
+
+def test_ci_to_bq():
+    assert convert(1, "Ci", "Bq") == 3.7e10
+
+
+def test_cm_to_m():
+    assert convert(100, "cm", "m") == 1
+
+
+def test_m_to_mm():
+    assert convert(1, "m", "mm") == 1000
+
+
+def test_mm_to_um():
+    assert convert(1, "mm", "μm") == 1000
+
+
+def test_kg_to_g():
+    assert convert(1, "kg", "g") == 1000
+
+
+def test_g_to_mg():
+    assert convert(1, "g", "mg") == 1000
+
+
+def test_min_to_s():
+    assert convert(1, "min", "s") == 60
+
+
+def test_h_to_s():
+    assert convert(1, "h", "s") == 3600
+
+
+def test_day_to_h():
+    assert convert(1, "day", "h") == 24
+
+
 def test_same_unit():
     assert convert(5, "Gy", "Gy") == 5
 
 
 def test_invalid_source_unit():
-    import pytest
-
     with pytest.raises(ValueError):
         convert(5, "invalid", "Gy")
 
 
 def test_invalid_target_unit():
-    import pytest
-
     with pytest.raises(ValueError):
         convert(5, "Gy", "invalid")
