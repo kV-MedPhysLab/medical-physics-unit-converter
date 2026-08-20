@@ -1,54 +1,44 @@
 # Medical Physics Unit Converter
 
-A lightweight scientific unit conversion tool for medical physics, radiation physics, and biomedical research.
+A scientific unit conversion tool developed by **kV-MedPhysLab** for medical physics, radiation physics, research, and education.
 
-## Current Version
+## Features
 
-**v0.1.0**
+- Radiation Dose: Gy, rad
+- Equivalent Dose: Sv, rem
+- Energy: eV, keV, MeV, GeV
+- Radioactivity: Bq, kBq, MBq, GBq, TBq, μCi, mCi, Ci
+- Length: m, cm, mm, μm, nm
+- Mass: kg, g, mg, μg
+- Time: s, ms, μs, min, h, day
+- Physical unit compatibility validation
+- Responsive web interface
+- Light and dark mode
 
-## Supported Conversions
+## Testing
 
-### Radiation Dose
+Automated tests are implemented with `pytest` and run through GitHub Actions.
 
-- Gy ↔ rad
+## Version
 
-### Equivalent Dose
-
-- Sv ↔ rem
-
-### Energy
-
-- eV ↔ keV
-- eV ↔ MeV
-- eV ↔ GeV
-- keV ↔ MeV
-- keV ↔ GeV
-- MeV ↔ GeV
-
-## Validation
-
-The conversion functions are validated using automated tests with pytest.
-
-Tests are automatically executed through GitHub Actions whenever changes are pushed to the main branch.
+**v0.2.0**
 
 ## Development Status
 
-This project is currently under active development.
-
-Future releases will expand the range of supported medical physics units and introduce additional functionality.
-
-## About
-
-Developed by **kV-MedPhysLab**.
-
-Founded by **Konstantinos Vasilopoulos**.
+Active development.
 
 ## Disclaimer
 
-This tool is intended for educational, research, and non-clinical purposes.
-
-It is not intended to replace validated clinical, regulatory, or commercial software.
+For educational, research, and non-clinical use.  
+This software is not intended to replace validated clinical or medical software.
 
 ## License
 
-License information will be added in a future release.
+MIT License
+
+## Developer
+
+**kV-MedPhysLab**  
+Founded by **Konstantinos Vasilopoulos**
+
+Medical Physics · Radiation Physics · Scientific Computing
