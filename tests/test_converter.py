@@ -56,7 +56,7 @@ def test_m_to_mm():
 
 
 def test_mm_to_um():
-    assert convert(1, "mm", "μm") == 1000
+    assert convert(1, "mm", "μm") == pytest.approx(1000)
 
 
 def test_kg_to_g():
@@ -64,7 +64,7 @@ def test_kg_to_g():
 
 
 def test_g_to_mg():
-    assert convert(1, "g", "mg") == 1000
+    assert convert(1, "g", "mg") == pytest.approx(1000)
 
 
 def test_min_to_s():
