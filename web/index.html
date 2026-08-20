@@ -14,6 +14,11 @@
     <main class="container">
 
         <header>
+            <div class="brand">
+                <span class="brand-mark">KV</span>
+                <span class="brand-name">kV-MedPhysLab</span>
+            </div>
+
             <h1>Medical Physics Unit Converter</h1>
 
             <p>
@@ -22,71 +27,149 @@
             </p>
         </header>
 
+
         <section class="converter">
 
-            <label for="value">Value</label>
-            <input
-                type="number"
-                id="value"
-                placeholder="Enter a value"
-                step="any"
-            >
+            <div class="field">
+
+                <label for="category">
+                    Category
+                </label>
+
+                <select id="category">
+
+                    <option value="radiation_dose">
+                        Radiation Dose
+                    </option>
+
+                    <option value="equivalent_dose">
+                        Equivalent Dose
+                    </option>
+
+                    <option value="energy">
+                        Energy
+                    </option>
+
+                    <option value="radioactivity">
+                        Radioactivity
+                    </option>
+
+                    <option value="length">
+                        Length
+                    </option>
+
+                    <option value="mass">
+                        Mass
+                    </option>
+
+                    <option value="time">
+                        Time
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="value">
+                    Value
+                </label>
+
+                <input
+                    type="number"
+                    id="value"
+                    placeholder="Enter a value"
+                    step="any"
+                >
+
+            </div>
+
 
             <div class="unit-row">
 
-                <div>
-                    <label for="fromUnit">From</label>
+                <div class="field">
 
-                    <select id="fromUnit">
-                        <option value="Gy">Gy</option>
-                        <option value="rad">rad</option>
-                        <option value="Sv">Sv</option>
-                        <option value="rem">rem</option>
-                        <option value="eV">eV</option>
-                        <option value="keV">keV</option>
-                        <option value="MeV">MeV</option>
-                        <option value="GeV">GeV</option>
-                    </select>
+                    <label for="fromUnit">
+                        From
+                    </label>
+
+                    <select id="fromUnit"></select>
+
                 </div>
 
-                <div>
-                    <label for="toUnit">To</label>
 
-                    <select id="toUnit">
-                        <option value="rad">rad</option>
-                        <option value="Gy">Gy</option>
-                        <option value="rem">rem</option>
-                        <option value="Sv">Sv</option>
-                        <option value="keV">keV</option>
-                        <option value="eV">eV</option>
-                        <option value="MeV">MeV</option>
-                        <option value="GeV">GeV</option>
-                    </select>
+                <button
+                    id="swapButton"
+                    class="swap-button"
+                    type="button"
+                    title="Swap units"
+                    aria-label="Swap units"
+                >
+                    ⇄
+                </button>
+
+
+                <div class="field">
+
+                    <label for="toUnit">
+                        To
+                    </label>
+
+                    <select id="toUnit"></select>
+
                 </div>
 
             </div>
 
-            <button id="convertButton">
+
+            <button
+                id="convertButton"
+                class="convert-button"
+                type="button"
+            >
                 Convert
             </button>
 
-            <div id="result" class="result">
+
+            <div
+                id="result"
+                class="result"
+                aria-live="polite"
+            >
                 Result will appear here.
             </div>
 
         </section>
 
-        <footer>
+
+        <section class="information">
+
+            <h2>Supported Categories</h2>
+
             <p>
-                kV-MedPhysLab · Medical Physics Unit Converter · v0.1.0
+                Radiation dose, equivalent dose, energy,
+                radioactivity, length, mass, and time.
+            </p>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                kV-MedPhysLab · Medical Physics Unit Converter · v0.2.0
             </p>
 
             <p>
                 For educational, research, and non-clinical use.
             </p>
+
         </footer>
 
     </main>
+
 
     <script src="app.js"></script>
 
