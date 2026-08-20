@@ -62,25 +62,6 @@ CONVERSION_FACTORS = {
 def convert(value, from_unit, to_unit):
     """
     Convert a numerical value from one unit to another.
-
-    Parameters
-    ----------
-    value : float
-        Numerical value to convert.
-    from_unit : str
-        Unit of the input value.
-    to_unit : str
-        Desired output unit.
-
-    Returns
-    -------
-    float
-        Converted value.
-
-    Raises
-    ------
-    ValueError
-        If either unit is not supported.
     """
 
     if from_unit not in CONVERSION_FACTORS:
