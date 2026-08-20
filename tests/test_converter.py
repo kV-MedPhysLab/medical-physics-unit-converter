@@ -91,3 +91,17 @@ def test_invalid_source_unit():
 def test_invalid_target_unit():
     with pytest.raises(ValueError):
         convert(5, "Gy", "invalid")
+
+def test_incompatible_dose_and_equivalent_dose():
+    with pytest.raises(ValueError):
+        convert(1, "Gy", "Sv")
+
+
+def test_incompatible_energy_and_mass():
+    with pytest.raises(ValueError):
+        convert(1, "MeV", "kg")
+
+
+def test_incompatible_radioactivity_and_dose():
+    with pytest.raises(ValueError):
+        convert(1, "Bq", "Gy")
