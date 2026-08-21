@@ -20,6 +20,16 @@ UNITS = {
     # Equivalent dose
     "Sv": ("equivalent_dose", 1.0),
     "rem": ("equivalent_dose", 0.01),
+    
+    # Equivalent dose rate
+    "Sv/s": ("equivalent_dose_rate", 1.0),
+    "Sv/min": ("equivalent_dose_rate", 1 / 60),
+    "Sv/h": ("equivalent_dose_rate", 1 / 3600),
+    "mSv/h": ("equivalent_dose_rate", 1e-3 / 3600),
+    "μSv/h": ("equivalent_dose_rate", 1e-6 / 3600),
+    "rem/s": ("equivalent_dose_rate", 0.01),
+    "rem/min": ("equivalent_dose_rate", 0.01 / 60),
+    "rem/h": ("equivalent_dose_rate", 0.01 / 3600),
 
     # Energy
     "eV": ("energy", 1.0),
