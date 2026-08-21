@@ -21,6 +21,17 @@ const units = {
         "rem": 0.01
     },
 
+    equivalent_dose_rate: {
+        "Sv/s": 1,
+        "Sv/min": 1 / 60,
+        "Sv/h": 1 / 3600,
+        "mSv/h": 1e-3 / 3600,
+        "μSv/h": 1e-6 / 3600,
+        "rem/s": 0.01,
+        "rem/min": 0.01 / 60,
+        "rem/h": 0.01 / 3600
+    },
+
     energy: {
         "eV": 1,
         "keV": 1e3,
