@@ -42,6 +42,8 @@ UNITS = {
     "mm": ("length", 1e-3),
     "μm": ("length", 1e-6),
     "nm": ("length", 1e-9),
+    "Å": ("length", 1e-10),
+    "pm": ("length", 1e-12),
 
     # Mass
     "kg": ("mass", 1.0),
