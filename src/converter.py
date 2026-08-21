@@ -56,6 +56,20 @@ UNITS = {
     "Å": ("length", 1e-10),
     "pm": ("length", 1e-12),
 
+    # Area
+    "m²": ("area", 1.0),
+    "cm²": ("area", 1e-4),
+    "mm²": ("area", 1e-6),
+    "μm²": ("area", 1e-12),
+
+    # Volume
+    "m³": ("volume", 1.0),
+    "L": ("volume", 1e-3),
+    "mL": ("volume", 1e-6),
+    "μL": ("volume", 1e-9),
+    "cm³": ("volume", 1e-6),
+    "mm³": ("volume", 1e-9),
+
     # Mass
     "kg": ("mass", 1.0),
     "g": ("mass", 1e-3),
