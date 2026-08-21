@@ -145,3 +145,21 @@ def test_rad_per_s_to_gy_per_s():
 
 def test_rad_per_h_to_gy_per_h():
     assert convert(1, "rad/h", "Gy/h") == 0.01
+    
+def test_sv_per_min_to_sv_per_s():
+    assert round(convert(1, "Sv/min", "Sv/s"), 12) == round(1 / 60, 12)
+
+def test_sv_per_h_to_sv_per_min():
+    assert round(convert(1, "Sv/h", "Sv/min"), 12) == round(1 / 60, 12)
+
+def test_msv_per_h_to_sv_per_h():
+    assert convert(1, "mSv/h", "Sv/h") == 0.001
+
+def test_usv_per_h_to_sv_per_h():
+    assert convert(1, "μSv/h", "Sv/h") == 0.000001
+
+def test_rem_per_s_to_sv_per_s():
+    assert convert(1, "rem/s", "Sv/s") == 0.01
+
+def test_rem_per_h_to_sv_per_h():
+    assert convert(1, "rem/h", "Sv/h") == 0.01
