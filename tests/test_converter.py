@@ -58,7 +58,12 @@ def test_m_to_mm():
 def test_mm_to_um():
     assert convert(1, "mm", "μm") == pytest.approx(1000)
 
+def test_angstrom_to_nm():
+    assert convert(1, "Å", "nm") == 0.1
 
+def test_picometer_to_nm():
+    assert convert(1, "pm", "nm") == 0.001
+    
 def test_kg_to_g():
     assert convert(1, "kg", "g") == 1000
 
