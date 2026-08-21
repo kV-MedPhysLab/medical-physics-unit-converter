@@ -73,6 +73,16 @@ UNITS = {
     "°C": ("temperature", "celsius"),
     "K": ("temperature", "kelvin"),
     "°F": ("temperature", "fahrenheit"),
+    
+    # Radiation dose rate
+    "Gy/s": ("radiation_dose_rate", 1.0),
+    "Gy/min": ("radiation_dose_rate", 1 / 60),
+    "Gy/h": ("radiation_dose_rate", 1 / 3600),
+    "mGy/h": ("radiation_dose_rate", 1e-3 / 3600),
+    "μGy/h": ("radiation_dose_rate", 1e-6 / 3600),
+    "rad/s": ("radiation_dose_rate", 0.01),
+    "rad/min": ("radiation_dose_rate", 0.01 / 60),
+    "rad/h": ("radiation_dose_rate", 0.01 / 3600),
 }
 
 
