@@ -163,3 +163,35 @@ def test_rem_per_s_to_sv_per_s():
 
 def test_rem_per_h_to_sv_per_h():
     assert convert(1, "rem/h", "Sv/h") == 0.01
+    
+    
+def test_m2_to_cm2():
+    assert convert(1, "m²", "cm²") == 10000
+
+def test_cm2_to_mm2():
+    assert convert(1, "cm²", "mm²") == 100
+
+def test_mm2_to_um2():
+    assert convert(1, "mm²", "μm²") == 1000000
+
+def test_cm2_to_m2():
+    assert convert(10000, "cm²", "m²") == 1
+
+
+def test_m3_to_l():
+    assert convert(1, "m³", "L") == 1000
+
+def test_l_to_ml():
+    assert convert(1, "L", "mL") == 1000
+
+def test_ml_to_ul():
+    assert convert(1, "mL", "μL") == 1000
+
+def test_cm3_to_ml():
+    assert convert(1, "cm³", "mL") == 1
+
+def test_mm3_to_ul():
+    assert convert(1, "mm³", "μL") == 1
+
+def test_l_to_cm3():
+    assert convert(1, "L", "cm³") == 1000
