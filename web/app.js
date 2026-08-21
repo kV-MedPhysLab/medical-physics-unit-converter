@@ -5,6 +5,17 @@ const units = {
         "rad": 0.01
     },
 
+    radiation_dose_rate: {
+        "Gy/s": 1,
+        "Gy/min": 1 / 60,
+        "Gy/h": 1 / 3600,
+        "mGy/h": 1e-3 / 3600,
+        "μGy/h": 1e-6 / 3600,
+        "rad/s": 0.01,
+        "rad/min": 0.01 / 60,
+        "rad/h": 0.01 / 3600
+    },
+
     equivalent_dose: {
         "Sv": 1,
         "rem": 0.01
