@@ -22,6 +22,7 @@ const units = {
         "kBq": 1e3,
         "MBq": 1e6,
         "GBq": 1e9,
+        "TBq": 1e12,
         "Ci": 3.7e10,
         "mCi": 3.7e7,
         "μCi": 3.7e4
@@ -32,9 +33,9 @@ const units = {
         "cm": 1e-2,
         "mm": 1e-3,
         "μm": 1e-6,
-        "nm": 1e-9
+        "nm": 1e-9,
         "Å": 1e-10,
-        "pm": 1e-12,
+        "pm": 1e-12
     },
 
     mass: {
@@ -52,7 +53,7 @@ const units = {
         "h": 3600,
         "day": 86400
     },
-    
+
     pressure: {
         "Pa": 1,
         "kPa": 1e3,
@@ -62,6 +63,12 @@ const units = {
         "mmHg": 133.322368,
         "psi": 6894.757293
     },
+
+    temperature: {
+        "°C": 1,
+        "K": 1,
+        "°F": 1
+    }
 };
 
 
@@ -122,6 +129,28 @@ function formatResult(value) {
 }
 
 
+function convertTemperature(value, fromUnit, toUnit) {
+
+    let celsius;
+
+    if (fromUnit === "°C") {
+        celsius = value;
+    } else if (fromUnit === "K") {
+        celsius = value - 273.15;
+    } else if (fromUnit === "°F") {
+        celsius = (value - 32) * 5 / 9;
+    }
+
+    if (toUnit === "°C") {
+        return celsius;
+    } else if (toUnit === "K") {
+        return celsius + 273.15;
+    } else if (toUnit === "°F") {
+        return celsius * 9 / 5 + 32;
+    }
+}
+
+
 function convert() {
 
     const value = Number(valueInput.value);
@@ -136,17 +165,32 @@ function convert() {
 
 
     const category = categorySelect.value;
-    const categoryUnits = units[category];
 
     const fromUnit = fromUnitSelect.value;
     const toUnit = toUnitSelect.value;
 
 
-    const baseValue =
-        value * categoryUnits[fromUnit];
+    let result;
 
-    const result =
-        baseValue / categoryUnits[toUnit];
+    if (category === "temperature") {
+
+        result =
+            convertTemperature(
+                value,
+                fromUnit,
+                toUnit
+            );
+
+    } else {
+
+        const categoryUnits = units[category];
+
+        const baseValue =
+            value * categoryUnits[fromUnit];
+
+        result =
+            baseValue / categoryUnits[toUnit];
+    }
 
 
     resultElement.textContent =
@@ -189,6 +233,8 @@ swapButton.addEventListener(
 
 
 populateUnits();
+
+
 const themeToggle =
     document.getElementById("themeToggle");
 
