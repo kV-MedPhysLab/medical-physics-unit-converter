@@ -125,3 +125,18 @@ def test_incompatible_energy_and_mass():
 def test_incompatible_radioactivity_and_dose():
     with pytest.raises(ValueError):
         convert(1, "Bq", "Gy")
+
+def test_celsius_to_kelvin():
+    assert convert(0, "°C", "K") == 273.15
+
+def test_celsius_to_fahrenheit():
+    assert convert(100, "°C", "°F") == 212
+
+def test_fahrenheit_to_celsius():
+    assert convert(32, "°F", "°C") == 0
+
+def test_kelvin_to_celsius():
+    assert convert(273.15, "K", "°C") == 0
+
+def test_kelvin_to_fahrenheit():
+    assert convert(273.15, "K", "°F") == 32
