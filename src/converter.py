@@ -58,7 +58,7 @@ UNITS = {
     "min": ("time", 60.0),
     "h": ("time", 3600.0),
     "day": ("time", 86400.0),
-    
+
     # Pressure
     "Pa": ("pressure", 1.0),
     "kPa": ("pressure", 1e3),
@@ -68,6 +68,10 @@ UNITS = {
     "mmHg": ("pressure", 133.322368),
     "psi": ("pressure", 6894.757293),
 
+    # Temperature
+    "°C": ("temperature", "celsius"),
+    "K": ("temperature", "kelvin"),
+    "°F": ("temperature", "fahrenheit"),
 }
 
 
@@ -96,6 +100,32 @@ def convert(value, from_unit, to_unit):
             f"Incompatible units: {from_unit} and {to_unit}"
         )
 
+    # Temperature conversions require offsets
+    if from_category == "temperature":
+
+        # Convert source temperature to Celsius
+        if from_unit == "°C":
+            celsius = value
+
+        elif from_unit == "K":
+            celsius = value - 273.15
+
+        elif from_unit == "°F":
+            celsius = (value - 32) * 5 / 9
+
+        # Convert Celsius to target temperature
+        if to_unit == "°C":
+            result = celsius
+
+        elif to_unit == "K":
+            result = celsius + 273.15
+
+        elif to_unit == "°F":
+            result = celsius * 9 / 5 + 32
+
+        return round(result, 12)
+
+    # Standard multiplicative conversions
     base_value = value * from_factor
 
-    return base_value / to_factor
+    return round(base_value / to_factor, 12)
