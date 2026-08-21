@@ -59,7 +59,7 @@ UNITS = {
     "h": ("time", 3600.0),
     "day": ("time", 86400.0),
     
-    "pressure": {
+    # Pressure
     "Pa": ("pressure", 1.0),
     "kPa": ("pressure", 1e3),
     "MPa": ("pressure", 1e6),
