@@ -58,6 +58,16 @@ UNITS = {
     "min": ("time", 60.0),
     "h": ("time", 3600.0),
     "day": ("time", 86400.0),
+    
+    "pressure": {
+    "Pa": ("pressure", 1.0),
+    "kPa": ("pressure", 1e3),
+    "MPa": ("pressure", 1e6),
+    "bar": ("pressure", 1e5),
+    "atm": ("pressure", 101325.0),
+    "mmHg": ("pressure", 133.322368),
+    "psi": ("pressure", 6894.757293),
+
 }
 
 
