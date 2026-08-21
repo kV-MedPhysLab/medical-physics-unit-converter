@@ -87,7 +87,21 @@ def test_day_to_h():
 
 def test_same_unit():
     assert convert(5, "Gy", "Gy") == 5
+    
+def test_pressure_pa_to_kpa():
+    assert convert(1000, "Pa", "kPa") == 1
 
+
+def test_pressure_bar_to_pa():
+    assert convert(1, "bar", "Pa") == 100000
+
+
+def test_pressure_atm_to_pa():
+    assert convert(1, "atm", "Pa") == 101325
+
+
+def test_pressure_mmhg_to_pa():
+    assert abs(convert(1, "mmHg", "Pa") - 133.322368) < 1e-6
 
 def test_invalid_source_unit():
     with pytest.raises(ValueError):
