@@ -32,6 +32,7 @@ UNITS = {
     "kBq": ("radioactivity", 1e3),
     "MBq": ("radioactivity", 1e6),
     "GBq": ("radioactivity", 1e9),
+    "TBq": ("radioactivity", 1e12),
     "Ci": ("radioactivity", 3.7e10),
     "mCi": ("radioactivity", 3.7e7),
     "μCi": ("radioactivity", 3.7e4),
