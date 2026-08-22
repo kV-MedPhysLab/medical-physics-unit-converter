@@ -151,3 +151,37 @@ def test_zero_final_value():
 def test_final_greater_than_initial():
     with pytest.raises(ValueError):
         calculate_layers(50, 100, "HVL")
+        
+from calculators.comparison import calculate_percentage_difference
+
+def test_percentage_difference_equal_values():
+    assert calculate_percentage_difference(100, 100) == pytest.approx(0)
+
+def test_percentage_difference_100_and_110():
+    assert calculate_percentage_difference(100, 110) == pytest.approx(
+        9.5238095238
+    )
+
+def test_percentage_difference_50_and_100():
+    assert calculate_percentage_difference(50, 100) == pytest.approx(
+        66.6666666667
+    )
+
+def test_percentage_difference_reversed_values():
+    assert calculate_percentage_difference(110, 100) == pytest.approx(
+        9.5238095238
+    )
+
+def test_percentage_difference_zero_values():
+    assert calculate_percentage_difference(0, 0) == 0
+
+def test_percentage_difference_one_zero_value():
+    assert calculate_percentage_difference(100, 0) == pytest.approx(200)
+
+def test_percentage_difference_negative_first_value():
+    with pytest.raises(ValueError):
+        calculate_percentage_difference(-100, 100)
+
+def test_percentage_difference_negative_second_value():
+    with pytest.raises(ValueError):
+        calculate_percentage_difference(100, -100)
