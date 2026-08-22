@@ -1,6 +1,6 @@
 import pytest
 
-from src.calculators.dose_rate import (
+from calculators.dose_rate import (
     calculate_dose,
     calculate_dose_rate,
     calculate_time,
