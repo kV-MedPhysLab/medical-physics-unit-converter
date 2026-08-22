@@ -423,3 +423,21 @@ categoryCards.forEach((card) => {
 
 
 populateUnits();
+
+const calculatorsButton =
+    document.getElementById("backToCalculators");
+
+
+if (calculatorsButton) {
+
+    calculatorsButton.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "calculator.html";
+
+        }
+    );
+
+}
