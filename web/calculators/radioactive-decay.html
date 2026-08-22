@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Radioactive Decay Calculator by kV-MedPhysLab"
+    >
+
+    <title>
+        Radioactive Decay Calculator | kV-MedPhysLab
+    </title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-content">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    KV
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        kV-MedPhysLab
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Scientific Tools for Medical Physics
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode"
+                >
+                    ☾
+                </button>
+
+                <div class="version">
+                    v1.0.0
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="main-content">
+
+        <section class="hero">
+
+            <div class="eyebrow">
+                CALCULATOR
+            </div>
+
+            <h1>
+                Radioactive<br>
+                <span>Decay</span>
+            </h1>
+
+            <p>
+                Calculate remaining activity after a given time
+                using the radioactive decay law.
+            </p>
+
+        </section>
+
+
+        <section class="converter-card">
+
+            <div class="section-title">
+
+                <h2>
+                    Radioactive Decay
+                </h2>
+
+                <p>
+                    Enter the initial activity, half-life, and elapsed time.
+                </p>
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="initialActivity">
+                    Initial Activity
+                </label>
+
+                <input
+                    type="number"
+                    id="initialActivity"
+                    placeholder="e.g. 100"
+                    step="any"
+                    min="0"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="halfLife">
+                    Half-life
+                </label>
+
+                <input
+                    type="number"
+                    id="halfLife"
+                    placeholder="e.g. 6"
+                    step="any"
+                    min="0"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="timeElapsed">
+                    Elapsed Time
+                </label>
+
+                <input
+                    type="number"
+                    id="timeElapsed"
+                    placeholder="e.g. 12"
+                    step="any"
+                    min="0"
+                >
+
+            </div>
+
+
+            <button
+                id="calculateButton"
+                class="convert-button"
+                type="button"
+            >
+                Calculate
+            </button>
+
+
+            <div
+                id="result"
+                class="result"
+                aria-live="polite"
+            >
+
+                <span class="result-label">
+                    REMAINING ACTIVITY
+                </span>
+
+                <span id="resultValue">
+                    —
+                </span>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div>
+            kV-MedPhysLab
+        </div>
+
+        <div>
+            Radioactive Decay Calculator · v1.0.0
+        </div>
+
+        <div>
+            Educational &amp; research use
+        </div>
+
+    </footer>
+
+
+    <script src="radioactive-decay.js"></script>
+
+</body>
+
+</html>
