@@ -1439,3 +1439,26 @@ body.dark-mode .calculator-panel {
 .calculator-content .field:last-of-type {
     margin-bottom: 24px;
 }
+
+/* =========================
+   TOOL NAVIGATION
+   ========================= */
+
+.tool-navigation {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tool-navigation .copy-button {
+    margin-top: 0;
+}
+
+
+@media (max-width: 600px) {
+
+    .tool-navigation {
+        flex-direction: column;
+    }
+
+}
