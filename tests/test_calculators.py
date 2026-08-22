@@ -109,7 +109,7 @@ def test_one_tvl():
     assert calculate_after_layers(100, 1, "TVL") == 10
 
 def test_two_tvls():
-    assert calculate_after_layers(100, 2, "TVL") == 1
+    assert calculate_after_layers(100, 2, "TVL") == pytest.approx(1)
 
 def test_hvl_case_insensitive():
     assert calculate_after_layers(100, 1, "hvl") == 50
