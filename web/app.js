@@ -1,293 +1,531 @@
-const units = {
-
-    radiation_dose: {
-        "Gy": 1,
-        "rad": 0.01
-    },
-
-    radiation_dose_rate: {
-        "Gy/s": 1,
-        "Gy/min": 1 / 60,
-        "Gy/h": 1 / 3600,
-        "mGy/h": 1e-3 / 3600,
-        "μGy/h": 1e-6 / 3600,
-        "rad/s": 0.01,
-        "rad/min": 0.01 / 60,
-        "rad/h": 0.01 / 3600
-    },
-
-    equivalent_dose: {
-        "Sv": 1,
-        "rem": 0.01
-    },
-
-    equivalent_dose_rate: {
-        "Sv/s": 1,
-        "Sv/min": 1 / 60,
-        "Sv/h": 1 / 3600,
-        "mSv/h": 1e-3 / 3600,
-        "μSv/h": 1e-6 / 3600,
-        "rem/s": 0.01,
-        "rem/min": 0.01 / 60,
-        "rem/h": 0.01 / 3600
-    },
-
-    energy: {
-        "eV": 1,
-        "keV": 1e3,
-        "MeV": 1e6,
-        "GeV": 1e9
-    },
-
-    radioactivity: {
-        "Bq": 1,
-        "kBq": 1e3,
-        "MBq": 1e6,
-        "GBq": 1e9,
-        "TBq": 1e12,
-        "Ci": 3.7e10,
-        "mCi": 3.7e7,
-        "μCi": 3.7e4
-    },
-
-    length: {
-        "m": 1,
-        "cm": 1e-2,
-        "mm": 1e-3,
-        "μm": 1e-6,
-        "nm": 1e-9,
-        "Å": 1e-10,
-        "pm": 1e-12
-    },
-
-    area: {
-        "m²": 1,
-        "cm²": 1e-4,
-        "mm²": 1e-6,
-        "μm²": 1e-12
-    },
-
-    volume: {
-        "m³": 1,
-        "L": 1e-3,
-        "mL": 1e-6,
-        "μL": 1e-9,
-        "cm³": 1e-6,
-        "mm³": 1e-9
-    },
-
-    mass: {
-        "kg": 1,
-        "g": 1e-3,
-        "mg": 1e-6,
-        "μg": 1e-9
-    },
-
-    time: {
-        "s": 1,
-        "ms": 1e-3,
-        "μs": 1e-6,
-        "min": 60,
-        "h": 3600,
-        "day": 86400
-    },
-
-    pressure: {
-        "Pa": 1,
-        "kPa": 1e3,
-        "MPa": 1e6,
-        "bar": 1e5,
-        "atm": 101325,
-        "mmHg": 133.322368,
-        "psi": 6894.757293
-    },
+<!DOCTYPE html>
+<html lang="en">
 
-    temperature: {
-        "°C": 1,
-        "K": 1,
-        "°F": 1
-    }
-};
+<head>
 
+    <meta charset="UTF-8">
 
-const categorySelect = document.getElementById("category");
-const valueInput = document.getElementById("value");
-const fromUnitSelect = document.getElementById("fromUnit");
-const toUnitSelect = document.getElementById("toUnit");
-const convertButton = document.getElementById("convertButton");
-const swapButton = document.getElementById("swapButton");
-const resultElement = document.getElementById("result");
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
+    <meta
+        name="description"
+        content="Medical Physics Unit Converter by kV-MedPhysLab"
+    >
 
-function populateUnits() {
+    <title>
+        Medical Physics Unit Converter | kV-MedPhysLab
+    </title>
 
-    const category = categorySelect.value;
-    const categoryUnits = units[category];
+    <link rel="stylesheet" href="style.css">
 
-    fromUnitSelect.innerHTML = "";
-    toUnitSelect.innerHTML = "";
+</head>
 
-    const unitNames = Object.keys(categoryUnits);
 
-    unitNames.forEach((unit) => {
+<body>
 
-        const fromOption = document.createElement("option");
-        fromOption.value = unit;
-        fromOption.textContent = unit;
+    <header class="site-header">
 
-        fromUnitSelect.appendChild(fromOption);
+        <div class="header-content">
 
+            <div class="brand">
 
-        const toOption = document.createElement("option");
-        toOption.value = unit;
-        toOption.textContent = unit;
+                <div class="brand-logo">
+                    KV
+                </div>
 
-        toUnitSelect.appendChild(toOption);
+                <div>
 
-    });
+                    <div class="brand-name">
+                        kV-MedPhysLab
+                    </div>
 
+                    <div class="brand-subtitle">
+                        Scientific Tools for Medical Physics
+                    </div>
 
-    if (unitNames.length > 1) {
-        toUnitSelect.selectedIndex = 1;
-    }
-}
+                </div>
 
+            </div>
 
-function formatResult(value) {
 
-    if (value === 0) {
-        return "0";
-    }
+            <div class="header-actions">
 
-    if (Math.abs(value) >= 1e-6 && Math.abs(value) < 1e9) {
-        return Number(value.toPrecision(10)).toString();
-    }
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode"
+                >
+                    ☾
+                </button>
 
-    return value.toExponential(6);
-}
+                <div class="version">
+                    v1.0.0
+                </div>
 
+            </div>
 
-function convertTemperature(value, fromUnit, toUnit) {
+        </div>
 
-    let celsius;
+    </header>
 
-    if (fromUnit === "°C") {
-        celsius = value;
-    } else if (fromUnit === "K") {
-        celsius = value - 273.15;
-    } else if (fromUnit === "°F") {
-        celsius = (value - 32) * 5 / 9;
-    }
 
-    if (toUnit === "°C") {
-        return celsius;
-    } else if (toUnit === "K") {
-        return celsius + 273.15;
-    } else if (toUnit === "°F") {
-        return celsius * 9 / 5 + 32;
-    }
-}
+    <main class="main-content">
 
 
-function convert() {
+        <section class="hero">
 
-    const value = Number(valueInput.value);
+            <div class="eyebrow">
+                SCIENTIFIC TOOL
+            </div>
 
-    if (valueInput.value === "" || !Number.isFinite(value)) {
+            <h1>
+                Medical Physics<br>
+                <span>Unit Converter</span>
+            </h1>
 
-        resultElement.textContent =
-            "Please enter a valid number.";
+            <p>
+                Fast and reliable unit conversions for medical physics,
+                radiation physics, and scientific research.
+            </p>
 
-        return;
-    }
+        </section>
 
 
-    const category = categorySelect.value;
+        <section class="converter-card">
 
-    const fromUnit = fromUnitSelect.value;
-    const toUnit = toUnitSelect.value;
 
+            <div class="section-title">
 
-    let result;
+                <div>
 
-    if (category === "temperature") {
+                    <h2>
+                        Convert Units
+                    </h2>
 
-        result =
-            convertTemperature(
-                value,
-                fromUnit,
-                toUnit
-            );
+                    <p>
+                        Select a physical quantity and enter your value.
+                    </p>
 
-    } else {
+                </div>
 
-        const categoryUnits = units[category];
+            </div>
 
-        const baseValue =
-            value * categoryUnits[fromUnit];
 
-        result =
-            baseValue / categoryUnits[toUnit];
-    }
+            <div class="field">
 
+                <label for="category">
+                    Physical Quantity
+                </label>
 
-    resultElement.textContent =
-        `${formatResult(result)} ${toUnit}`;
-}
+                <select id="category">
 
+                    <option value="radiation_dose">
+                        Radiation Dose
+                    </option>
 
-categorySelect.addEventListener(
-    "change",
-    populateUnits
-);
+                    <option value="radiation_dose_rate">
+                        Radiation Dose Rate
+                    </option>
 
+                    <option value="equivalent_dose">
+                        Equivalent Dose
+                    </option>
 
-convertButton.addEventListener(
-    "click",
-    convert
-);
+                    <option value="equivalent_dose_rate">
+                        Equivalent Dose Rate
+                    </option>
 
+                    <option value="energy">
+                        Energy
+                    </option>
 
-swapButton.addEventListener(
-    "click",
-    function () {
+                    <option value="radioactivity">
+                        Radioactivity
+                    </option>
 
-        const from =
-            fromUnitSelect.value;
+                    <option value="length">
+                        Length
+                    </option>
 
-        const to =
-            toUnitSelect.value;
+                    <option value="area">
+                        Area
+                    </option>
 
+                    <option value="volume">
+                        Volume
+                    </option>
 
-        fromUnitSelect.value = to;
-        toUnitSelect.value = from;
+                    <option value="mass">
+                        Mass
+                    </option>
 
+                    <option value="time">
+                        Time
+                    </option>
 
-        if (valueInput.value !== "") {
-            convert();
-        }
-    }
-);
+                    <option value="pressure">
+                        Pressure
+                    </option>
 
+                    <option value="temperature">
+                        Temperature
+                    </option>
 
-populateUnits();
+                </select>
 
+            </div>
 
-const themeToggle =
-    document.getElementById("themeToggle");
 
+            <div class="field">
 
-themeToggle.addEventListener(
-    "click",
-    function () {
+                <label for="value">
+                    Value
+                </label>
 
-        document.body.classList.toggle("dark-mode");
+                <input
+                    type="number"
+                    id="value"
+                    placeholder="e.g. 5"
+                    step="any"
+                    autocomplete="off"
+                >
 
-        const darkMode =
-            document.body.classList.contains("dark-mode");
+            </div>
 
-        themeToggle.textContent =
-            darkMode ? "☀" : "☾";
 
-    }
-);
+            <div class="conversion-row">
+
+
+                <div class="unit-field">
+
+                    <label for="fromUnit">
+                        From
+                    </label>
+
+                    <select id="fromUnit"></select>
+
+                </div>
+
+
+                <button
+                    id="swapButton"
+                    class="swap-button"
+                    type="button"
+                    title="Swap units"
+                    aria-label="Swap units"
+                >
+                    ⇄
+                </button>
+
+
+                <div class="unit-field">
+
+                    <label for="toUnit">
+                        To
+                    </label>
+
+                    <select id="toUnit"></select>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                id="convertButton"
+                class="convert-button"
+                type="button"
+            >
+                Convert
+            </button>
+
+
+            <div
+                id="result"
+                class="result"
+                aria-live="polite"
+            >
+
+                <span class="result-label">
+                    RESULT
+                </span>
+
+                <span id="resultValue">
+                    —
+                </span>
+
+            </div>
+
+
+            <button
+                id="copyButton"
+                class="copy-button"
+                type="button"
+            >
+                Copy Result
+            </button>
+
+
+        </section>
+
+
+        <section class="categories-section">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    AVAILABLE
+                </div>
+
+                <h2>
+                    Conversion Categories
+                </h2>
+
+            </div>
+
+
+            <div class="category-grid">
+
+
+                <button
+                    class="category-card"
+                    data-category="radiation_dose"
+                >
+                    <span class="category-icon">◉</span>
+                    <span class="category-name">
+                        Radiation Dose
+                    </span>
+                    <span class="category-description">
+                        Gy · rad
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="radiation_dose_rate"
+                >
+                    <span class="category-icon">◉/s</span>
+                    <span class="category-name">
+                        Radiation Dose Rate
+                    </span>
+                    <span class="category-description">
+                        Gy/s · Gy/h · mGy/h · μGy/h · rad/h
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="equivalent_dose"
+                >
+                    <span class="category-icon">Σ</span>
+                    <span class="category-name">
+                        Equivalent Dose
+                    </span>
+                    <span class="category-description">
+                        Sv · rem
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="equivalent_dose_rate"
+                >
+                    <span class="category-icon">Σ/s</span>
+                    <span class="category-name">
+                        Equivalent Dose Rate
+                    </span>
+                    <span class="category-description">
+                        Sv/s · Sv/h · mSv/h · μSv/h · rem/h
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="energy"
+                >
+                    <span class="category-icon">⚡</span>
+                    <span class="category-name">
+                        Energy
+                    </span>
+                    <span class="category-description">
+                        eV · keV · MeV · GeV
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="radioactivity"
+                >
+                    <span class="category-icon">☢</span>
+                    <span class="category-name">
+                        Radioactivity
+                    </span>
+                    <span class="category-description">
+                        Bq · kBq · MBq · GBq · TBq · Ci
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="length"
+                >
+                    <span class="category-icon">↔</span>
+                    <span class="category-name">
+                        Length
+                    </span>
+                    <span class="category-description">
+                        m · cm · mm · μm · nm · Å · pm
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="area"
+                >
+                    <span class="category-icon">▣</span>
+                    <span class="category-name">
+                        Area
+                    </span>
+                    <span class="category-description">
+                        m² · cm² · mm² · μm²
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="volume"
+                >
+                    <span class="category-icon">▱</span>
+                    <span class="category-name">
+                        Volume
+                    </span>
+                    <span class="category-description">
+                        m³ · L · mL · μL · cm³ · mm³
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="mass"
+                >
+                    <span class="category-icon">⚖</span>
+                    <span class="category-name">
+                        Mass
+                    </span>
+                    <span class="category-description">
+                        kg · g · mg · μg
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="time"
+                >
+                    <span class="category-icon">◷</span>
+                    <span class="category-name">
+                        Time
+                    </span>
+                    <span class="category-description">
+                        s · ms · μs · min · h · day
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="pressure"
+                >
+                    <span class="category-icon">P</span>
+                    <span class="category-name">
+                        Pressure
+                    </span>
+                    <span class="category-description">
+                        Pa · kPa · MPa · bar · atm · mmHg · psi
+                    </span>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="temperature"
+                >
+                    <span class="category-icon">°</span>
+                    <span class="category-name">
+                        Temperature
+                    </span>
+                    <span class="category-description">
+                        °C · K · °F
+                    </span>
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <section class="about-section">
+
+            <div>
+
+                <div class="eyebrow">
+                    ABOUT THIS TOOL
+                </div>
+
+                <h2>
+                    Built for scientific work.
+                </h2>
+
+            </div>
+
+            <p>
+                Medical Physics Unit Converter is an open-source
+                scientific utility developed by kV-MedPhysLab.
+                It is designed for educational, research, and
+                non-clinical applications.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div>
+            kV-MedPhysLab
+        </div>
+
+        <div>
+            Medical Physics Unit Converter · v1.0.0
+        </div>
+
+        <div>
+            Educational &amp; research use
+        </div>
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
