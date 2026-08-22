@@ -12,11 +12,11 @@
 
     <meta
         name="description"
-        content="Medical Physics Unit Converter by kV-MedPhysLab"
+        content="kV-MedPhysLab Scientific Tools for Medical Physics"
     >
 
     <title>
-        Medical Physics Unit Converter | kV-MedPhysLab
+        kV-MedPhysLab | Scientific Tools
     </title>
 
     <link rel="stylesheet" href="style.css">
@@ -80,399 +80,107 @@
         <section class="hero">
 
             <div class="eyebrow">
-                SCIENTIFIC TOOL
+                kV-MEDPHYSLAB
             </div>
 
             <h1>
-                Medical Physics<br>
-                <span>Unit Converter</span>
+                Scientific Tools<br>
+                <span>for Medical Physics</span>
             </h1>
 
             <p>
-                Fast and reliable unit conversions for medical physics,
-                radiation physics, and scientific research.
+                Practical calculators and unit converters designed
+                for medical physics, radiation physics, education,
+                and scientific research.
             </p>
 
         </section>
 
 
-        <section class="converter-card">
-
-
-            <div class="section-title">
-
-                <div>
-
-                    <h2>
-                        Convert Units
-                    </h2>
-
-                    <p>
-                        Select a physical quantity and enter your value.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="category">
-                    Physical Quantity
-                </label>
-
-                <select id="category">
-
-                    <option value="radiation_dose">
-                        Radiation Dose
-                    </option>
-
-                    <option value="radiation_dose_rate">
-                        Radiation Dose Rate
-                    </option>
-
-                    <option value="equivalent_dose">
-                        Equivalent Dose
-                    </option>
-
-                    <option value="equivalent_dose_rate">
-                        Equivalent Dose Rate
-                    </option>
-
-                    <option value="energy">
-                        Energy
-                    </option>
-
-                    <option value="radioactivity">
-                        Radioactivity
-                    </option>
-
-                    <option value="length">
-                        Length
-                    </option>
-
-                    <option value="area">
-                        Area
-                    </option>
-
-                    <option value="volume">
-                        Volume
-                    </option>
-
-                    <option value="mass">
-                        Mass
-                    </option>
-
-                    <option value="time">
-                        Time
-                    </option>
-
-                    <option value="pressure">
-                        Pressure
-                    </option>
-
-                    <option value="temperature">
-                        Temperature
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="value">
-                    Value
-                </label>
-
-                <input
-                    type="number"
-                    id="value"
-                    placeholder="e.g. 5"
-                    step="any"
-                    autocomplete="off"
-                >
-
-            </div>
-
-
-            <div class="conversion-row">
-
-
-                <div class="unit-field">
-
-                    <label for="fromUnit">
-                        From
-                    </label>
-
-                    <select id="fromUnit"></select>
-
-                </div>
-
-
-                <button
-                    id="swapButton"
-                    class="swap-button"
-                    type="button"
-                    title="Swap units"
-                    aria-label="Swap units"
-                >
-                    ⇄
-                </button>
-
-
-                <div class="unit-field">
-
-                    <label for="toUnit">
-                        To
-                    </label>
-
-                    <select id="toUnit"></select>
-
-                </div>
-
-
-            </div>
-
-
-            <button
-                id="convertButton"
-                class="convert-button"
-                type="button"
-            >
-                Convert
-            </button>
-
-
-            <div
-                id="result"
-                class="result"
-                aria-live="polite"
-            >
-
-                <span class="result-label">
-                    RESULT
-                </span>
-
-                <span id="resultValue">
-                    —
-                </span>
-
-            </div>
-
-
-            <button
-                id="copyButton"
-                class="copy-button"
-                type="button"
-            >
-                Copy Result
-            </button>
-
-
-        </section>
-
-
-        <section class="categories-section">
+        <section class="tools-section">
 
             <div class="section-heading">
 
                 <div class="eyebrow">
-                    AVAILABLE
+                    EXPLORE
                 </div>
 
                 <h2>
-                    Conversion Categories
+                    Choose a Tool
                 </h2>
 
             </div>
 
 
-            <div class="category-grid">
+            <div class="tools-grid">
 
 
-                <button
-                    class="category-card"
-                    data-category="radiation_dose"
+                <a
+                    href="converter.html"
+                    class="tool-card"
                 >
-                    <span class="category-icon">◉</span>
-                    <span class="category-name">
-                        Radiation Dose
-                    </span>
-                    <span class="category-description">
-                        Gy · rad
-                    </span>
-                </button>
+
+                    <div class="tool-icon">
+                        ⇄
+                    </div>
+
+                    <div class="tool-content">
+
+                        <div class="tool-label">
+                            TOOL 01
+                        </div>
+
+                        <h3>
+                            Converter
+                        </h3>
+
+                        <p>
+                            Convert physical quantities and
+                            scientific units used in medical
+                            physics and radiation physics.
+                        </p>
+
+                    </div>
+
+                    <div class="tool-arrow">
+                        →
+                    </div>
+
+                </a>
 
 
-                <button
-                    class="category-card"
-                    data-category="radiation_dose_rate"
+                <a
+                    href="calculator.html"
+                    class="tool-card"
                 >
-                    <span class="category-icon">◉/s</span>
-                    <span class="category-name">
-                        Radiation Dose Rate
-                    </span>
-                    <span class="category-description">
-                        Gy/s · Gy/h · mGy/h · μGy/h · rad/h
-                    </span>
-                </button>
 
+                    <div class="tool-icon">
+                        ∑
+                    </div>
 
-                <button
-                    class="category-card"
-                    data-category="equivalent_dose"
-                >
-                    <span class="category-icon">Σ</span>
-                    <span class="category-name">
-                        Equivalent Dose
-                    </span>
-                    <span class="category-description">
-                        Sv · rem
-                    </span>
-                </button>
+                    <div class="tool-content">
 
+                        <div class="tool-label">
+                            TOOL 02
+                        </div>
 
-                <button
-                    class="category-card"
-                    data-category="equivalent_dose_rate"
-                >
-                    <span class="category-icon">Σ/s</span>
-                    <span class="category-name">
-                        Equivalent Dose Rate
-                    </span>
-                    <span class="category-description">
-                        Sv/s · Sv/h · mSv/h · μSv/h · rem/h
-                    </span>
-                </button>
+                        <h3>
+                            Calculator
+                        </h3>
 
+                        <p>
+                            Perform specialized calculations
+                            for medical physics, radiation,
+                            dosimetry, and nuclear medicine.
+                        </p>
 
-                <button
-                    class="category-card"
-                    data-category="energy"
-                >
-                    <span class="category-icon">⚡</span>
-                    <span class="category-name">
-                        Energy
-                    </span>
-                    <span class="category-description">
-                        eV · keV · MeV · GeV
-                    </span>
-                </button>
+                    </div>
 
+                    <div class="tool-arrow">
+                        →
+                    </div>
 
-                <button
-                    class="category-card"
-                    data-category="radioactivity"
-                >
-                    <span class="category-icon">☢</span>
-                    <span class="category-name">
-                        Radioactivity
-                    </span>
-                    <span class="category-description">
-                        Bq · kBq · MBq · GBq · TBq · Ci
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="length"
-                >
-                    <span class="category-icon">↔</span>
-                    <span class="category-name">
-                        Length
-                    </span>
-                    <span class="category-description">
-                        m · cm · mm · μm · nm · Å · pm
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="area"
-                >
-                    <span class="category-icon">▣</span>
-                    <span class="category-name">
-                        Area
-                    </span>
-                    <span class="category-description">
-                        m² · cm² · mm² · μm²
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="volume"
-                >
-                    <span class="category-icon">▱</span>
-                    <span class="category-name">
-                        Volume
-                    </span>
-                    <span class="category-description">
-                        m³ · L · mL · μL · cm³ · mm³
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="mass"
-                >
-                    <span class="category-icon">⚖</span>
-                    <span class="category-name">
-                        Mass
-                    </span>
-                    <span class="category-description">
-                        kg · g · mg · μg
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="time"
-                >
-                    <span class="category-icon">◷</span>
-                    <span class="category-name">
-                        Time
-                    </span>
-                    <span class="category-description">
-                        s · ms · μs · min · h · day
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="pressure"
-                >
-                    <span class="category-icon">P</span>
-                    <span class="category-name">
-                        Pressure
-                    </span>
-                    <span class="category-description">
-                        Pa · kPa · MPa · bar · atm · mmHg · psi
-                    </span>
-                </button>
-
-
-                <button
-                    class="category-card"
-                    data-category="temperature"
-                >
-                    <span class="category-icon">°</span>
-                    <span class="category-name">
-                        Temperature
-                    </span>
-                    <span class="category-description">
-                        °C · K · °F
-                    </span>
-                </button>
+                </a>
 
 
             </div>
@@ -485,7 +193,7 @@
             <div>
 
                 <div class="eyebrow">
-                    ABOUT THIS TOOL
+                    ABOUT
                 </div>
 
                 <h2>
@@ -495,10 +203,10 @@
             </div>
 
             <p>
-                Medical Physics Unit Converter is an open-source
-                scientific utility developed by kV-MedPhysLab.
-                It is designed for educational, research, and
-                non-clinical applications.
+                kV-MedPhysLab is a collection of open-source
+                scientific tools developed for educational,
+                research, and non-clinical applications in
+                medical physics.
             </p>
 
         </section>
@@ -514,7 +222,7 @@
         </div>
 
         <div>
-            Medical Physics Unit Converter · v1.0.0
+            Scientific Tools · v1.0.0
         </div>
 
         <div>
@@ -524,7 +232,27 @@
     </footer>
 
 
-    <script src="app.js"></script>
+    <script>
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle("dark-mode");
+
+                const darkMode =
+                    document.body.classList.contains("dark-mode");
+
+                themeToggle.textContent =
+                    darkMode ? "☀" : "☾";
+
+            }
+        );
+
+    </script>
 
 </body>
 
