@@ -121,16 +121,16 @@ def test_zero_layers():
     assert calculate_after_layers(100, 0, "HVL") == 100
 
 def test_required_hvls():
-    assert calculate_layers(100, 50, "HVL") == 1
+    assert calculate_layers(100, 50, "HVL") == pytest.approx(1)
 
 def test_required_tvls():
-    assert calculate_layers(100, 10, "TVL") == 1
+    assert calculate_layers(100, 10, "TVL") == pytest.approx(1)
 
 def test_required_two_hvls():
-    assert calculate_layers(100, 25, "HVL") == 2
+    assert calculate_layers(100, 25, "HVL") == pytest.approx(2)
 
 def test_required_two_tvls():
-    assert calculate_layers(100, 1, "TVL") == 2
+    assert calculate_layers(100, 1, "TVL") == pytest.approx(2)
 
 def test_negative_layers():
     with pytest.raises(ValueError):
