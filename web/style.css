@@ -1427,3 +1427,15 @@ body.dark-mode .calculator-panel {
     }
 
 }
+
+/* =========================
+   CALCULATOR CONTENT
+   ========================= */
+
+.calculator-content {
+    width: 100%;
+}
+
+.calculator-content .field:last-of-type {
+    margin-bottom: 24px;
+}
