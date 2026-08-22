@@ -396,4 +396,10 @@ themeToggle.addEventListener(
             darkMode ? "☀" : "☾";
 
     }
+    
+    backToConverter.addEventListener("click", () => {
+
+    window.location.href = "converter.html";
+
+});
 );
