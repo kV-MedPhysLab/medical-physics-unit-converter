@@ -92,3 +92,62 @@ def test_inverse_square_negative_initial_distance():
 def test_inverse_square_negative_new_distance():
     with pytest.raises(ValueError):
         calculate_inverse_square(100, 1, -2)
+        
+
+from calculators.hvl_tvl import (
+    calculate_after_layers,
+    calculate_layers,
+)
+
+def test_one_hvl():
+    assert calculate_after_layers(100, 1, "HVL") == 50
+
+def test_two_hvls():
+    assert calculate_after_layers(100, 2, "HVL") == 25
+
+def test_one_tvl():
+    assert calculate_after_layers(100, 1, "TVL") == 10
+
+def test_two_tvls():
+    assert calculate_after_layers(100, 2, "TVL") == 1
+
+def test_hvl_case_insensitive():
+    assert calculate_after_layers(100, 1, "hvl") == 50
+
+def test_tvl_case_insensitive():
+    assert calculate_after_layers(100, 1, "tvl") == 10
+
+def test_zero_layers():
+    assert calculate_after_layers(100, 0, "HVL") == 100
+
+def test_required_hvls():
+    assert calculate_layers(100, 50, "HVL") == 1
+
+def test_required_tvls():
+    assert calculate_layers(100, 10, "TVL") == 1
+
+def test_required_two_hvls():
+    assert calculate_layers(100, 25, "HVL") == 2
+
+def test_required_two_tvls():
+    assert calculate_layers(100, 1, "TVL") == 2
+
+def test_negative_layers():
+    with pytest.raises(ValueError):
+        calculate_after_layers(100, -1, "HVL")
+
+def test_invalid_layer_type():
+    with pytest.raises(ValueError):
+        calculate_after_layers(100, 1, "ABC")
+
+def test_zero_initial_value():
+    with pytest.raises(ValueError):
+        calculate_layers(0, 10, "HVL")
+
+def test_zero_final_value():
+    with pytest.raises(ValueError):
+        calculate_layers(100, 0, "HVL")
+
+def test_final_greater_than_initial():
+    with pytest.raises(ValueError):
+        calculate_layers(50, 100, "HVL")
