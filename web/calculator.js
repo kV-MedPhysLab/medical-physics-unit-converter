@@ -16,6 +16,8 @@ const calculatorDescription =
 const backButton =
     document.getElementById("backToCalculators");
 
+const backToConverter =
+    document.getElementById("backToConverter");
 
 const calculators = {
 
