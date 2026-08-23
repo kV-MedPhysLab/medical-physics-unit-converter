@@ -19,6 +19,7 @@ const backButton =
 const backToConverter =
     document.getElementById("backToConverter");
 
+
 const calculators = {
 
     "radioactive-decay": {
@@ -128,6 +129,25 @@ backButton.addEventListener("click", () => {
     });
 
 });
+
+
+/* =========================
+   BACK TO CONVERTER
+   ========================= */
+
+if (backToConverter) {
+
+    backToConverter.addEventListener(
+        "click",
+        () => {
+
+            window.location.href =
+                "converter.html";
+
+        }
+    );
+
+}
 
 
 /* =========================
@@ -396,10 +416,4 @@ themeToggle.addEventListener(
             darkMode ? "☀" : "☾";
 
     }
-    
-    backToConverter.addEventListener("click", () => {
-
-    window.location.href = "converter.html";
-
-});
 );
