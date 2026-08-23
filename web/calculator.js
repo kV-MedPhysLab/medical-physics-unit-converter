@@ -231,3 +231,21 @@ themeToggle.addEventListener("click", () => {
         darkMode ? "☀" : "☾";
 
 });
+
+/* =========================
+   BACK TO MAIN PAGE
+   ========================= */
+
+const backToMain =
+    document.getElementById("backToMain");
+
+
+if (backToMain) {
+
+    backToMain.addEventListener("click", () => {
+
+        window.location.href = "index.html";
+
+    });
+
+}
