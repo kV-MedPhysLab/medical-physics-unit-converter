@@ -96,6 +96,10 @@
     </section>
 
 
+    <!-- =========================
+         CALCULATOR NAVIGATION
+         ========================= -->
+
     <section class="categories-section">
 
         <div class="section-heading">
@@ -113,16 +117,13 @@
 
         <div class="category-grid">
 
-
             <button
                 class="category-card"
                 type="button"
                 data-calculator="radioactive-decay"
             >
 
-                <span class="category-icon">
-                    ☢
-                </span>
+                <span class="category-icon">☢</span>
 
                 <span class="category-name">
                     Radioactive Decay
@@ -141,9 +142,7 @@
                 data-calculator="dose-rate"
             >
 
-                <span class="category-icon">
-                    ◉
-                </span>
+                <span class="category-icon">◉</span>
 
                 <span class="category-name">
                     Dose Rate
@@ -162,9 +161,7 @@
                 data-calculator="hvl-tvl"
             >
 
-                <span class="category-icon">
-                    HVL
-                </span>
+                <span class="category-icon">HVL</span>
 
                 <span class="category-name">
                     HVL / TVL
@@ -183,9 +180,7 @@
                 data-calculator="percentage"
             >
 
-                <span class="category-icon">
-                    %
-                </span>
+                <span class="category-icon">%</span>
 
                 <span class="category-name">
                     Percentage Calculations
@@ -197,6 +192,354 @@
 
             </button>
 
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RADIOACTIVE DECAY
+         ========================= -->
+
+    <section
+        id="radioactive-decay"
+        class="converter-card calculator-section"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Radioactive Decay Calculator
+            </h2>
+
+            <p>
+                Calculate remaining activity after radioactive decay.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="initialActivity">
+                Initial Activity
+            </label>
+
+            <input
+                type="number"
+                id="initialActivity"
+                placeholder="e.g. 100"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="halfLife">
+                Half-life
+            </label>
+
+            <input
+                type="number"
+                id="halfLife"
+                placeholder="e.g. 10"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="decayTime">
+                Time
+            </label>
+
+            <input
+                type="number"
+                id="decayTime"
+                placeholder="e.g. 20"
+                step="any"
+            >
+
+        </div>
+
+
+        <button
+            id="decayButton"
+            class="convert-button"
+            type="button"
+        >
+            Calculate
+        </button>
+
+
+        <div class="result">
+
+            <span class="result-label">
+                REMAINING ACTIVITY
+            </span>
+
+            <span id="decayResult">
+                —
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DOSE RATE
+         ========================= -->
+
+    <section
+        id="dose-rate"
+        class="converter-card calculator-section"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Dose Rate Calculator
+            </h2>
+
+            <p>
+                Calculate radiation dose rate from dose and time.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="doseValue">
+                Dose
+            </label>
+
+            <input
+                type="number"
+                id="doseValue"
+                placeholder="e.g. 100"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="doseTime">
+                Time
+            </label>
+
+            <input
+                type="number"
+                id="doseTime"
+                placeholder="e.g. 2"
+                step="any"
+            >
+
+        </div>
+
+
+        <button
+            id="doseRateButton"
+            class="convert-button"
+            type="button"
+        >
+            Calculate
+        </button>
+
+
+        <div class="result">
+
+            <span class="result-label">
+                DOSE RATE
+            </span>
+
+            <span id="doseRateResult">
+                —
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HVL / TVL
+         ========================= -->
+
+    <section
+        id="hvl-tvl"
+        class="converter-card calculator-section"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                HVL / TVL Calculator
+            </h2>
+
+            <p>
+                Calculate attenuation using half-value and tenth-value layers.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="initialIntensity">
+                Initial Intensity
+            </label>
+
+            <input
+                type="number"
+                id="initialIntensity"
+                placeholder="e.g. 100"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="layerNumber">
+                Number of Layers
+            </label>
+
+            <input
+                type="number"
+                id="layerNumber"
+                placeholder="e.g. 2"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="layerType">
+                Layer Type
+            </label>
+
+            <select id="layerType">
+
+                <option value="HVL">
+                    HVL
+                </option>
+
+                <option value="TVL">
+                    TVL
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            id="hvlButton"
+            class="convert-button"
+            type="button"
+        >
+            Calculate
+        </button>
+
+
+        <div class="result">
+
+            <span class="result-label">
+                REMAINING INTENSITY
+            </span>
+
+            <span id="hvlResult">
+                —
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PERCENTAGE
+         ========================= -->
+
+    <section
+        id="percentage"
+        class="converter-card calculator-section"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Percentage Calculator
+            </h2>
+
+            <p>
+                Perform common scientific percentage calculations.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="percentageValue">
+                Value
+            </label>
+
+            <input
+                type="number"
+                id="percentageValue"
+                placeholder="e.g. 25"
+                step="any"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="percentageTotal">
+                Total
+            </label>
+
+            <input
+                type="number"
+                id="percentageTotal"
+                placeholder="e.g. 100"
+                step="any"
+            >
+
+        </div>
+
+
+        <button
+            id="percentageButton"
+            class="convert-button"
+            type="button"
+        >
+            Calculate
+        </button>
+
+
+        <div class="result">
+
+            <span class="result-label">
+                PERCENTAGE
+            </span>
+
+            <span id="percentageResult">
+                —
+            </span>
 
         </div>
 
