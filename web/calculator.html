@@ -26,593 +26,228 @@
 
 <body>
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="header-content">
+    <div class="header-content">
 
-            <div class="brand">
+        <div class="brand">
 
-                <div class="brand-logo">
-                    KV
-                </div>
-
-                <div>
-
-                    <div class="brand-name">
-                        kV-MedPhysLab
-                    </div>
-
-                    <div class="brand-subtitle">
-                        Scientific Tools for Medical Physics
-                    </div>
-
-                </div>
-
+            <div class="brand-logo">
+                KV
             </div>
-
-
-            <div class="header-actions">
-
-                <button
-                    id="themeToggle"
-                    class="theme-toggle"
-                    type="button"
-                    aria-label="Toggle dark mode"
-                    title="Toggle dark mode"
-                >
-                    ☾
-                </button>
-
-                <div class="version">
-                    v1.0.0
-                </div>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <main class="main-content">
-
-
-        <section class="hero">
-
-            <div class="eyebrow">
-                SCIENTIFIC TOOLS
-            </div>
-
-            <h1>
-                Medical Physics<br>
-                <span>Calculators</span>
-            </h1>
-
-            <p>
-                Practical calculators for radiation physics,
-                medical physics, nuclear medicine, and scientific research.
-            </p>
-
-        </section>
-
-
-        <!-- CALCULATOR SELECTION -->
-
-        <section
-            id="calculatorSelection"
-            class="categories-section"
-        >
-
-            <div class="section-heading">
-
-                <div class="eyebrow">
-                    AVAILABLE
-                </div>
-
-                <h2>
-                    Calculation Tools
-                </h2>
-
-            </div>
-
-
-            <div class="category-grid">
-
-
-                <button
-                    class="category-card"
-                    type="button"
-                    data-calculator="radioactive-decay"
-                >
-
-                    <span class="category-icon">
-                        ☢
-                    </span>
-
-                    <span class="category-name">
-                        Radioactive Decay
-                    </span>
-
-                    <span class="category-description">
-                        Activity · Half-life · Decay
-                    </span>
-
-                </button>
-
-
-                <button
-                    class="category-card"
-                    type="button"
-                    data-calculator="dose-rate"
-                >
-
-                    <span class="category-icon">
-                        ◉
-                    </span>
-
-                    <span class="category-name">
-                        Dose Rate
-                    </span>
-
-                    <span class="category-description">
-                        Radiation dose rate calculations
-                    </span>
-
-                </button>
-
-
-                <button
-                    class="category-card"
-                    type="button"
-                    data-calculator="hvl-tvl"
-                >
-
-                    <span class="category-icon">
-                        HVL
-                    </span>
-
-                    <span class="category-name">
-                        HVL / TVL
-                    </span>
-
-                    <span class="category-description">
-                        Half-value and tenth-value layers
-                    </span>
-
-                </button>
-
-
-                <button
-                    class="category-card"
-                    type="button"
-                    data-calculator="percentage"
-                >
-
-                    <span class="category-icon">
-                        %
-                    </span>
-
-                    <span class="category-name">
-                        Percentage Calculations
-                    </span>
-
-                    <span class="category-description">
-                        Scientific percentage calculations
-                    </span>
-
-                </button>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- CALCULATOR PANEL -->
-
-        <section
-            id="calculatorPanel"
-            class="converter-card"
-            style="display: none; margin-top: 40px;"
-        >
-
-            <div class="section-title">
-
-                <div>
-
-                    <h2 id="calculatorTitle">
-                        Calculator
-                    </h2>
-
-                    <p id="calculatorDescription">
-                        Scientific calculation tool.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- RADIOACTIVE DECAY -->
-
-            <div
-                id="radioactiveDecayCalculator"
-                class="calculator-content"
-                style="display: none;"
-            >
-
-                <div class="field">
-
-                    <label for="initialActivity">
-                        Initial Activity
-                    </label>
-
-                    <input
-                        type="number"
-                        id="initialActivity"
-                        placeholder="e.g. 100"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="halfLife">
-                        Half-life
-                    </label>
-
-                    <input
-                        type="number"
-                        id="halfLife"
-                        placeholder="e.g. 6"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="decayTime">
-                        Elapsed Time
-                    </label>
-
-                    <input
-                        type="number"
-                        id="decayTime"
-                        placeholder="e.g. 12"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <button
-                    id="calculateDecayButton"
-                    class="convert-button"
-                    type="button"
-                >
-                    Calculate
-                </button>
-
-
-                <div
-                    id="decayResult"
-                    class="result"
-                    aria-live="polite"
-                >
-
-                    <span class="result-label">
-                        REMAINING ACTIVITY
-                    </span>
-
-                    <span id="decayResultValue">
-                        —
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- DOSE RATE -->
-
-            <div
-                id="doseRateCalculator"
-                class="calculator-content"
-                style="display: none;"
-            >
-
-                <div class="field">
-
-                    <label for="doseRateDistance">
-                        Initial Dose Rate
-                    </label>
-
-                    <input
-                        type="number"
-                        id="doseRateDistance"
-                        placeholder="e.g. 100"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="initialDistance">
-                        Initial Distance
-                    </label>
-
-                    <input
-                        type="number"
-                        id="initialDistance"
-                        placeholder="e.g. 1"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="finalDistance">
-                        Final Distance
-                    </label>
-
-                    <input
-                        type="number"
-                        id="finalDistance"
-                        placeholder="e.g. 2"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <button
-                    id="calculateDoseRateButton"
-                    class="convert-button"
-                    type="button"
-                >
-                    Calculate
-                </button>
-
-
-                <div
-                    id="doseRateResult"
-                    class="result"
-                    aria-live="polite"
-                >
-
-                    <span class="result-label">
-                        FINAL DOSE RATE
-                    </span>
-
-                    <span id="doseRateResultValue">
-                        —
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- HVL / TVL -->
-
-            <div
-                id="hvlTvlCalculator"
-                class="calculator-content"
-                style="display: none;"
-            >
-
-                <div class="field">
-
-                    <label for="hvlValue">
-                        HVL
-                    </label>
-
-                    <input
-                        type="number"
-                        id="hvlValue"
-                        placeholder="e.g. 2"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="tvlLayers">
-                        Number of HVLs
-                    </label>
-
-                    <input
-                        type="number"
-                        id="tvlLayers"
-                        placeholder="e.g. 3"
-                        step="any"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <button
-                    id="calculateHvlButton"
-                    class="convert-button"
-                    type="button"
-                >
-                    Calculate
-                </button>
-
-
-                <div
-                    id="hvlResult"
-                    class="result"
-                    aria-live="polite"
-                >
-
-                    <span class="result-label">
-                        TOTAL THICKNESS
-                    </span>
-
-                    <span id="hvlResultValue">
-                        —
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PERCENTAGE -->
-
-            <div
-                id="percentageCalculator"
-                class="calculator-content"
-                style="display: none;"
-            >
-
-                <div class="field">
-
-                    <label for="percentageValue">
-                        Value
-                    </label>
-
-                    <input
-                        type="number"
-                        id="percentageValue"
-                        placeholder="e.g. 25"
-                        step="any"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="percentageTotal">
-                        Total
-                    </label>
-
-                    <input
-                        type="number"
-                        id="percentageTotal"
-                        placeholder="e.g. 200"
-                        step="any"
-                    >
-
-                </div>
-
-
-                <button
-                    id="calculatePercentageButton"
-                    class="convert-button"
-                    type="button"
-                >
-                    Calculate
-                </button>
-
-
-                <div
-                    id="percentageResult"
-                    class="result"
-                    aria-live="polite"
-                >
-
-                    <span class="result-label">
-                        PERCENTAGE
-                    </span>
-
-                    <span id="percentageResultValue">
-                        —
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="tool-navigation">
-
-            <button
-                id="backToCalculators"
-                class="copy-button"
-                type="button"
-            >
-                ← Back to Calculators
-            </button>
-
-            <button
-                id="backToConverter"
-                class="copy-button"
-                type="button"
-        >
-            ← Back to Converter
-        </button>
-
-    </div>
-
-        </section>
-
-
-        <section class="about-section">
 
             <div>
 
-                <div class="eyebrow">
-                    ABOUT THIS TOOL
+                <div class="brand-name">
+                    kV-MedPhysLab
                 </div>
 
-                <h2>
-                    Built for scientific work.
-                </h2>
+                <div class="brand-subtitle">
+                    Scientific Tools for Medical Physics
+                </div>
 
             </div>
 
-            <p>
-                Medical Physics Calculators is part of the
-                kV-MedPhysLab scientific tools collection.
-                These calculators are intended for educational,
-                research, and non-clinical applications.
-            </p>
-
-        </section>
-
-
-    </main>
-
-
-    <footer class="site-footer">
-
-        <div>
-            kV-MedPhysLab
         </div>
 
-        <div>
-            Medical Physics Calculators · v1.0.0
+
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Toggle dark mode"
+            >
+                ☾
+            </button>
+
+            <div class="version">
+                v1.0.0
+            </div>
+
         </div>
 
-        <div>
-            Educational &amp; research use
+    </div>
+
+</header>
+
+
+<main class="main-content">
+
+
+    <section class="hero">
+
+        <div class="eyebrow">
+            SCIENTIFIC TOOLS
         </div>
 
-    </footer>
+        <h1>
+            Medical Physics<br>
+            <span>Calculators</span>
+        </h1>
+
+        <p>
+            Practical calculators for radiation physics,
+            medical physics, nuclear medicine, and scientific research.
+        </p>
+
+    </section>
 
 
-    <script src="calculator.js"></script>
+    <section class="categories-section">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                AVAILABLE
+            </div>
+
+            <h2>
+                Calculation Tools
+            </h2>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <button
+                class="category-card"
+                type="button"
+                data-calculator="radioactive-decay"
+            >
+
+                <span class="category-icon">
+                    ☢
+                </span>
+
+                <span class="category-name">
+                    Radioactive Decay
+                </span>
+
+                <span class="category-description">
+                    Activity · Half-life · Decay
+                </span>
+
+            </button>
+
+
+            <button
+                class="category-card"
+                type="button"
+                data-calculator="dose-rate"
+            >
+
+                <span class="category-icon">
+                    ◉
+                </span>
+
+                <span class="category-name">
+                    Dose Rate
+                </span>
+
+                <span class="category-description">
+                    Radiation dose rate calculations
+                </span>
+
+            </button>
+
+
+            <button
+                class="category-card"
+                type="button"
+                data-calculator="hvl-tvl"
+            >
+
+                <span class="category-icon">
+                    HVL
+                </span>
+
+                <span class="category-name">
+                    HVL / TVL
+                </span>
+
+                <span class="category-description">
+                    Half-value and tenth-value layers
+                </span>
+
+            </button>
+
+
+            <button
+                class="category-card"
+                type="button"
+                data-calculator="percentage"
+            >
+
+                <span class="category-icon">
+                    %
+                </span>
+
+                <span class="category-name">
+                    Percentage Calculations
+                </span>
+
+                <span class="category-description">
+                    Scientific percentage calculations
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="about-section">
+
+        <div>
+
+            <div class="eyebrow">
+                ABOUT THIS TOOL
+            </div>
+
+            <h2>
+                Built for scientific work.
+            </h2>
+
+        </div>
+
+        <p>
+            Medical Physics Calculators is part of the
+            kV-MedPhysLab scientific tools collection.
+            These calculators are intended for educational,
+            research, and non-clinical applications.
+        </p>
+
+    </section>
+
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div>
+        kV-MedPhysLab
+    </div>
+
+    <div>
+        Medical Physics Calculators · v1.0.0
+    </div>
+
+    <div>
+        Educational &amp; research use
+    </div>
+
+</footer>
+
+
+<script src="calculator.js"></script>
 
 </body>
 
